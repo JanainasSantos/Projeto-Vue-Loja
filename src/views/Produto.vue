@@ -8,6 +8,9 @@
       <button @click="comprar" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
       <button class="btn" v-else>Produto Vendido</button>
     </div>
+    <div class="imgProdutos" v-if="url">
+        <img  :src="url" :alt="produto.nome"/>
+    </div>
      <div class="alerta" :class="{ativo : alertaAtivo}">
         <p class="alerta_mensagem">{{mensagemAlerta}}</p>
       </div>
@@ -23,10 +26,14 @@ export default {
   props: ['id'],
   data () {
     return {
-      carrinho: 0,
       produto: null,
       mensagemAlerta: '',
       alertaAtivo: false
+    }
+  },
+  computed: {
+    url () {
+      return require(`@/api/produtos/${this.id}.jpg`)
     }
   },
   methods: {
@@ -62,6 +69,31 @@ export default {
   max-width: 900px;
   padding: 60px 20px;
   margin: 0 auto
+}
+.informacoes{
+  background: #fff;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+  grid-gap: 30px;
+  max-width: 900px;
+  padding: 60px 20px;
+  margin: 0 auto
+}
+.imgProdutos{
+  background: #fff;
+  border-radius: 5%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+  grid-gap: 30px;
+  max-width: 900px;
+  padding: 60px 20px;
+  margin: 0 auto
+}
+.imgProdutos img{
+  max-width: 300px;
+  max-height: 300px;
+  margin-right: 40px;
 }
 .preco{
   color: #70a8cc;

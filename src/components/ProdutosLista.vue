@@ -7,6 +7,7 @@
             <h2 class="titulo">{{ produto.nome }}</h2>
             <p class="preco">{{ produto.preco | numeroPreco }}</p>
             <p>{{ produto.descricao }}</p>
+
           </router-link>
 
        </div>
@@ -42,9 +43,7 @@ export default {
   methods: {
     getProdutos () {
       this.produtos = null
-
       api.get(this.url).then((response) => {
-        console.log(response)
         this.produtosTotal = Number(response.headers['x-total-count'])
         this.produtos = response.data
       })

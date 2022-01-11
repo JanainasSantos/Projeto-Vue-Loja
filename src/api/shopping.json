@@ -7,7 +7,12 @@
       "descricao": "Dell, Processador Intel I9 10° Geração.",
       "vendido": "false",
       "estoque": "20",
-      "fotos": [{ "src": "@/produtos/notebook.jpg", "titulo": "notebook" }]
+      "fotos": [
+        {
+          "src": "produtos/notebook.jpg",
+          "titulo": "notebook"
+        }
+      ]
     },
     {
       "id": "smartphone",
@@ -18,7 +23,7 @@
       "estoque": "10",
       "fotos": [
         {
-          "src": "./api/produtos/tablet/smartphone.jpg",
+          "src": "produtos/smartphone.jpg",
           "titulo": "smartphone"
         }
       ]
@@ -30,9 +35,7 @@
       "descricao": "Novo, última geração.",
       "vendido": "false",
       "estoque": "10",
-      "fotos": [
-        { "src": "./api/produtos/tablet/tablet.jpg", "titulo": "tablet" }
-      ]
+      "fotos": [{ "src": "produtos/tablet.jpg", "titulo": "tablet" }]
     },
     {
       "id": "smartwatch",
@@ -43,7 +46,7 @@
       "estoque": "50",
       "fotos": [
         {
-          "src": "./api/produtos/tablet/smartwatch.jpg",
+          "src": "produtos/smartwatch.jpg",
           "titulo": "smartwatch"
         }
       ]
@@ -55,9 +58,7 @@
       "descricao": "Xiaomi, última geração.",
       "vendido": "false",
       "estoque": "5",
-      "fotos": [
-        { "src": "./api/produtos/tablet/airdots.jpg", "titulo": "airdots" }
-      ]
+      "fotos": [{ "src": "produtos/airdots.jpg", "titulo": "airdots" }]
     },
     {
       "id": "gopro",
@@ -66,7 +67,7 @@
       "descricao": "GoPro, câmera pequena com excelente resolução.",
       "vendido": "false",
       "estoque": "70",
-      "fotos": [{ "src": "./api/produtos/tablet/gopro.jpg", "titulo": "gopro" }]
+      "fotos": [{ "src": "produtos/gopro.jpg", "titulo": "gopro" }]
     },
     {
       "id": "ipad",
@@ -75,7 +76,7 @@
       "descricao": "iPad, 4° geração.",
       "vendido": "false",
       "estoque": "15",
-      "fotos": [{ "src": "./api/produtos/tablet/ipad.jpg", "titulo": "ipad" }]
+      "fotos": [{ "src": "produtos/ipad.jpg", "titulo": "ipad" }]
     },
     {
       "id": "vr",
@@ -84,7 +85,7 @@
       "descricao": "Oculus Quest 2 Realidade virtual",
       "vendido": "false",
       "estoque": "74",
-      "fotos": [{ "src": "./api/produtos/tablet/vr.jpg", "titulo": "vr" }]
+      "fotos": [{ "src": "produtos/vr.jpg", "titulo": "vr" }]
     },
     {
       "id": "drone",
@@ -93,7 +94,7 @@
       "descricao": "Drone DJI AIR 2, versão mini",
       "vendido": "false",
       "estoque": "69",
-      "fotos": [{ "src": "./api/produtos/tablet/drone.jpg", "titulo": "drone" }]
+      "fotos": [{ "src": "produtos/drone.jpg", "titulo": "drone" }]
     },
     {
       "id": "iphone",
@@ -102,9 +103,7 @@
       "descricao": "iPhone XR, 64GB de memóŕia",
       "vendido": "false",
       "estoque": "36",
-      "fotos": [
-        { "src": "./api/produtos/tablet/iphone.jpg", "titulo": "iphone" }
-      ]
+      "fotos": [{ "src": "produtos/iphone.jpg", "titulo": "iphone" }]
     },
     {
       "id": "camera",
@@ -113,9 +112,8 @@
       "descricao": "Câmera Instax Mini, polaroid",
       "vendido": "false",
       "estoque": "27",
-      "fotos": [
-        { "src": "./api/produtos/tablet/camera.jpg", "titulo": "camera" }
-      ]
+      "img": "./api/produtos/camera.jpg",
+      "fotos": [{ "src": "produtos/camera.jpg", "titulo": "camera" }]
     },
     {
       "id": "nintendo",
@@ -124,9 +122,7 @@
       "descricao": "Nintendo Switch, Cinza",
       "vendido": "false",
       "estoque": "14",
-      "fotos": [
-        { "src": "./api/produtos/tablet/nintendo.jpg", "titulo": "nintendo" }
-      ]
+      "fotos": [{ "src": "produtos/nintendo.jpg", "titulo": "nintendo" }]
     }
   ]
 }
