@@ -1,0 +1,132 @@
+{
+  "produtos": [
+    {
+      "id": "notebook",
+      "nome": "Notebook",
+      "preco": "3500",
+      "descricao": "Dell, Processador Intel I9 10° Geração.",
+      "vendido": "false",
+      "estoque": "20",
+      "fotos": [{ "src": "@/produtos/notebook.jpg", "titulo": "notebook" }]
+    },
+    {
+      "id": "smartphone",
+      "nome": "Smartphone",
+      "preco": "2500",
+      "descricao": "Xiaomi, última geração.",
+      "vendido": "false",
+      "estoque": "10",
+      "fotos": [
+        {
+          "src": "./api/produtos/tablet/smartphone.jpg",
+          "titulo": "smartphone"
+        }
+      ]
+    },
+    {
+      "id": "tablet",
+      "nome": "Tablet",
+      "preco": "500",
+      "descricao": "Novo, última geração.",
+      "vendido": "false",
+      "estoque": "10",
+      "fotos": [
+        { "src": "./api/produtos/tablet/tablet.jpg", "titulo": "tablet" }
+      ]
+    },
+    {
+      "id": "smartwatch",
+      "nome": "Smartwatch",
+      "preco": "299",
+      "descricao": "Mi Band, última geração.",
+      "vendido": "false",
+      "estoque": "50",
+      "fotos": [
+        {
+          "src": "./api/produtos/tablet/smartwatch.jpg",
+          "titulo": "smartwatch"
+        }
+      ]
+    },
+    {
+      "id": "airdots",
+      "nome": "Airdots",
+      "preco": "299",
+      "descricao": "Xiaomi, última geração.",
+      "vendido": "false",
+      "estoque": "5",
+      "fotos": [
+        { "src": "./api/produtos/tablet/airdots.jpg", "titulo": "airdots" }
+      ]
+    },
+    {
+      "id": "gopro",
+      "nome": "GoPro",
+      "preco": "2500",
+      "descricao": "GoPro, câmera pequena com excelente resolução.",
+      "vendido": "false",
+      "estoque": "70",
+      "fotos": [{ "src": "./api/produtos/tablet/gopro.jpg", "titulo": "gopro" }]
+    },
+    {
+      "id": "ipad",
+      "nome": "iPad",
+      "preco": "4000",
+      "descricao": "iPad, 4° geração.",
+      "vendido": "false",
+      "estoque": "15",
+      "fotos": [{ "src": "./api/produtos/tablet/ipad.jpg", "titulo": "ipad" }]
+    },
+    {
+      "id": "vr",
+      "nome": "Oculus Quest VR",
+      "preco": "3200",
+      "descricao": "Oculus Quest 2 Realidade virtual",
+      "vendido": "false",
+      "estoque": "74",
+      "fotos": [{ "src": "./api/produtos/tablet/vr.jpg", "titulo": "vr" }]
+    },
+    {
+      "id": "drone",
+      "nome": "Drone DJI 2",
+      "preco": "3200",
+      "descricao": "Drone DJI AIR 2, versão mini",
+      "vendido": "false",
+      "estoque": "69",
+      "fotos": [{ "src": "./api/produtos/tablet/drone.jpg", "titulo": "drone" }]
+    },
+    {
+      "id": "iphone",
+      "nome": "iPhone XR",
+      "preco": "3700",
+      "descricao": "iPhone XR, 64GB de memóŕia",
+      "vendido": "false",
+      "estoque": "36",
+      "fotos": [
+        { "src": "./api/produtos/tablet/iphone.jpg", "titulo": "iphone" }
+      ]
+    },
+    {
+      "id": "camera",
+      "nome": "Câmera Instax Mini",
+      "preco": "399",
+      "descricao": "Câmera Instax Mini, polaroid",
+      "vendido": "false",
+      "estoque": "27",
+      "fotos": [
+        { "src": "./api/produtos/tablet/camera.jpg", "titulo": "camera" }
+      ]
+    },
+    {
+      "id": "nintendo",
+      "nome": "Nintendo Switch",
+      "preco": "399",
+      "descricao": "Nintendo Switch, Cinza",
+      "vendido": "false",
+      "estoque": "14",
+      "fotos": [
+        { "src": "./api/produtos/tablet/nintendo.jpg", "titulo": "nintendo" }
+      ]
+    }
+  ]
+}
