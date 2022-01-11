@@ -9,7 +9,7 @@
       "estoque": "20",
       "fotos": [
         {
-          "src": "produtos/notebook.jpg",
+          "src": "./api/produtos/notebook.jpg",
           "titulo": "notebook"
         }
       ]
@@ -118,7 +118,7 @@
     {
       "id": "nintendo",
       "nome": "Nintendo Switch",
-      "preco": "399",
+      "preco": "3500",
       "descricao": "Nintendo Switch, Cinza",
       "vendido": "false",
       "estoque": "14",
