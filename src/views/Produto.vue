@@ -98,18 +98,22 @@ export default {
 .imgProdutos{
   background: #fff;
   border-radius: 5%;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
   grid-gap: 30px;
   max-width: 900px;
-  padding: 60px 20px;
+  padding: 20px 20px;
   margin: 0 auto
 }
 .imgProdutos img{
   max-width: 300px;
   max-height: 300px;
-  margin-right: 40px;
+  margin: 20px;
+}
+.imgProdutos img:hover{
+  cursor:pointer;
+  transform: scale(1.1);
+  position: relative;
+  z-index: 1;
 }
 .preco{
   color: #70a8cc;
@@ -121,7 +125,7 @@ export default {
   font-size: 1.2rem;
 }
 .btn{
-  margin-top: 60px;
+  margin: 40px;
   width: 200px;
 }
 .alerta_mensagem {
