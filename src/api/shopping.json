@@ -100,7 +100,7 @@
       "id": "iphone",
       "nome": "iPhone XR",
       "preco": "3700",
-      "descricao": "iPhone XR, 64GB de memóŕia",
+      "descricao": "iPhone XR, 64GB de memória",
       "vendido": "false",
       "estoque": "36",
       "fotos": [{ "src": "produtos/iphone.jpg", "titulo": "iphone" }]
