@@ -14,6 +14,9 @@
      <div class="alerta" :class="{ativo : alertaAtivo}">
         <p class="alerta_mensagem">{{mensagemAlerta}}</p>
       </div>
+      <div class="alerta" :class="{erro: alertaErro}">
+        <p class="alerta_erro">{{mensagemAlerta}}</p>
+      </div>
   </div>
 </section>
 
@@ -28,7 +31,8 @@ export default {
     return {
       produto: null,
       mensagemAlerta: '',
-      alertaAtivo: false
+      alertaAtivo: false,
+      alertaErro: false
     }
   },
   computed: {
@@ -38,13 +42,25 @@ export default {
   },
   methods: {
     comprar () {
-      this.alerta(`${this.id} comprado!`)
+      this.produto.estoque--
+      if (this.produto.estoque > 0) {
+        this.alerta(`${this.produto.nome} comprado!`)
+      } else {
+        this.erro('Produto esgotado')
+      }
     },
     alerta (mensagem) {
       this.mensagemAlerta = mensagem
       this.alertaAtivo = true
       setTimeout(() => {
         this.alertaAtivo = false
+      }, 1500)
+    },
+    erro (mensagem) {
+      this.mensagemAlerta = mensagem
+      this.alertaErro = true
+      setTimeout(() => {
+        this.alertaErro = false
       }, 1500)
     },
     getProduto () {
@@ -123,6 +139,17 @@ export default {
   width: 100%;
   text-align: center;
   display: none;
+}
+ .alerta_erro {
+  background: #ffffff;
+  display: inline-block;
+  padding: 20px 40px;
+  border: 2px solid  red;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.alerta.erro {
+  display: block;
+  animation: fadeInDown 0.3s forwards;
 }
 .alerta.ativo {
   display: block;
