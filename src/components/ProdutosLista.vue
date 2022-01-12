@@ -41,6 +41,7 @@ export default {
     }
   },
   methods: {
+
     getProdutos () {
       this.produtos = null
       api.get(this.url).then((response) => {

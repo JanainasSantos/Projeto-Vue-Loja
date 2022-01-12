@@ -6,7 +6,7 @@
       "preco": "3500",
       "descricao": "Dell, Processador Intel I9 10° Geração.",
       "vendido": "false",
-      "estoque": "20",
+      "estoque": 20,
       "fotos": [
         {
           "src": "./api/produtos/notebook.jpg",
@@ -20,7 +20,7 @@
       "preco": "2500",
       "descricao": "Xiaomi, última geração.",
       "vendido": "false",
-      "estoque": "10",
+      "estoque": 10,
       "fotos": [
         {
           "src": "produtos/smartphone.jpg",
@@ -34,7 +34,7 @@
       "preco": "500",
       "descricao": "Novo, última geração.",
       "vendido": "false",
-      "estoque": "10",
+      "estoque": 10,
       "fotos": [{ "src": "produtos/tablet.jpg", "titulo": "tablet" }]
     },
     {
@@ -43,7 +43,7 @@
       "preco": "299",
       "descricao": "Mi Band, última geração.",
       "vendido": "false",
-      "estoque": "50",
+      "estoque": 50,
       "fotos": [
         {
           "src": "produtos/smartwatch.jpg",
@@ -57,7 +57,7 @@
       "preco": "299",
       "descricao": "Xiaomi, última geração.",
       "vendido": "false",
-      "estoque": "5",
+      "estoque": 5,
       "fotos": [{ "src": "produtos/airdots.jpg", "titulo": "airdots" }]
     },
     {
@@ -66,7 +66,7 @@
       "preco": "2500",
       "descricao": "GoPro, câmera pequena com excelente resolução.",
       "vendido": "false",
-      "estoque": "70",
+      "estoque": 70,
       "fotos": [{ "src": "produtos/gopro.jpg", "titulo": "gopro" }]
     },
     {
@@ -75,7 +75,7 @@
       "preco": "4000",
       "descricao": "iPad, 4° geração.",
       "vendido": "false",
-      "estoque": "15",
+      "estoque": 15,
       "fotos": [{ "src": "produtos/ipad.jpg", "titulo": "ipad" }]
     },
     {
@@ -84,7 +84,7 @@
       "preco": "3200",
       "descricao": "Oculus Quest 2 Realidade virtual",
       "vendido": "false",
-      "estoque": "74",
+      "estoque": 74,
       "fotos": [{ "src": "produtos/vr.jpg", "titulo": "vr" }]
     },
     {
@@ -93,7 +93,7 @@
       "preco": "3200",
       "descricao": "Drone DJI AIR 2, versão mini",
       "vendido": "false",
-      "estoque": "69",
+      "estoque": 69,
       "fotos": [{ "src": "produtos/drone.jpg", "titulo": "drone" }]
     },
     {
@@ -102,7 +102,7 @@
       "preco": "3700",
       "descricao": "iPhone XR, 64GB de memória",
       "vendido": "false",
-      "estoque": "36",
+      "estoque": 36,
       "fotos": [{ "src": "produtos/iphone.jpg", "titulo": "iphone" }]
     },
     {
@@ -111,7 +111,7 @@
       "preco": "399",
       "descricao": "Câmera Instax Mini, polaroid",
       "vendido": "false",
-      "estoque": "27",
+      "estoque": 27,
       "img": "./api/produtos/camera.jpg",
       "fotos": [{ "src": "produtos/camera.jpg", "titulo": "camera" }]
     },
@@ -121,7 +121,7 @@
       "preco": "3500",
       "descricao": "Nintendo Switch, Cinza",
       "vendido": "false",
-      "estoque": "14",
+      "estoque": 14,
       "fotos": [{ "src": "produtos/nintendo.jpg", "titulo": "nintendo" }]
     }
   ]

@@ -1,11 +1,13 @@
 <template>
 <section>
   <div v-if="produto" class="produto">
+    <div></div>
+    <Carrinho  :carrinho="carrinho" />
     <div class="informacoes">
       <h1>{{produto.nome}}</h1>
       <p class="preco">{{produto.preco | numeroPreco}}</p>
       <p  class="descricao">{{produto.descricao}}</p>
-      <button @click="comprar" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
+      <button :disabled="carrinho.length >= this.produto.estoque" @click="adicionarItem(); comprar();" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
       <button class="btn" v-else>Produto Vendido</button>
     </div>
     <div class="imgProdutos" v-if="url">
@@ -17,18 +19,24 @@
       <div class="alerta" :class="{erro: alertaErro}">
         <p class="alerta_erro">{{mensagemAlerta}}</p>
       </div>
+
   </div>
 </section>
 
 </template>
 <script>
 import { api } from '@/services.js'
+import Carrinho from '@/components/Carrinho.vue'
 
 export default {
   name: 'Produtos',
   props: ['id'],
+  components: {
+    Carrinho
+  },
   data () {
     return {
+      carrinho: [],
       produto: null,
       mensagemAlerta: '',
       alertaAtivo: false,
@@ -41,9 +49,13 @@ export default {
     }
   },
   methods: {
+    adicionarItem () {
+      const { id, nome, preco } = this.produto
+      this.carrinho.push({ id, nome, preco })
+      this.alerta(`${nome} adicionado ao carrinho`)
+    },
     comprar () {
-      this.produto.estoque--
-      if (this.produto.estoque > 0) {
+      if (this.produto.estoque) {
         this.alerta(`${this.produto.nome} comprado!`)
       } else {
         this.erro('Produto esgotado')
@@ -71,8 +83,14 @@ export default {
     }
 
   },
+
   created () {
     this.getProduto()
+  },
+  watch: {
+    adicionarItem () {
+      this.adicionarItem()
+    }
   }
 
 }
