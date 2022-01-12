@@ -7,7 +7,7 @@
       <h1>{{produto.nome}}</h1>
       <p class="preco">{{produto.preco | numeroPreco}}</p>
       <p  class="descricao">{{produto.descricao}}</p>
-      <button :disabled="carrinho.length >= this.produto.estoque" @click="adicionarItem(); comprar();" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
+      <button :disabled="carrinho.length >= produto.estoque" @click="adicionarItem(); comprar();" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
       <button class="btn" v-else>Produto Vendido</button>
     </div>
     <div class="imgProdutos" v-if="url">
@@ -16,8 +16,8 @@
      <div class="alerta" :class="{ativo : alertaAtivo}">
         <p class="alerta_mensagem">{{mensagemAlerta}}</p>
       </div>
-      <div class="alerta" :class="{erro: alertaErro}">
-        <p class="alerta_erro">{{mensagemAlerta}}</p>
+      <div  v-if="carrinho.length >= produto.estoque" class="alerta erro">
+        <p class="alerta_erro">Produto esgotado</p>
       </div>
 
   </div>
@@ -57,8 +57,6 @@ export default {
     comprar () {
       if (this.produto.estoque) {
         this.alerta(`${this.produto.nome} comprado!`)
-      } else {
-        this.erro('Produto esgotado')
       }
     },
     alerta (mensagem) {
@@ -68,13 +66,7 @@ export default {
         this.alertaAtivo = false
       }, 1500)
     },
-    erro (mensagem) {
-      this.mensagemAlerta = mensagem
-      this.alertaErro = true
-      setTimeout(() => {
-        this.alertaErro = false
-      }, 1500)
-    },
+
     getProduto () {
       this.produto = null
       api.get(`/produtos/${this.id}`).then((response) => {
@@ -171,10 +163,29 @@ export default {
 }
 .alerta.erro {
   display: block;
-  animation: fadeInDown 0.3s forwards;
+  -moz-animation: timeErro 0s ease-in 1.5s forwards;
+  -webkit-animation: timeErro 0s ease-in 1.5s forwards;
+  -o-animation: timeErro 0s ease-in 1.5s forwards;
+  animation: timeErro 0s ease-in 1.5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 .alerta.ativo {
   display: block;
   animation: fadeInDown 0.3s forwards;
+}
+@keyframes timeErro {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes timeErro {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
 }
 </style>
