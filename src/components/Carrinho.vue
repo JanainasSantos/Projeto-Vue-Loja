@@ -1,19 +1,19 @@
 <template>
     <div class="carrinho_geral">
       <div class="carrinho_menu" @click="carrinhoAtivo = true">
-        <img src="@/assets/carrinho.svg" alt="carrinho"/>{{carrinhoTotal | numeroPreco}} | {{carrinho.length}}
+        <img src="@/assets/carrinho.svg" alt="carrinho"/>{{carrinhoTotal | numeroPreco}} | {{$store.state.carrinho.length}}
          </div>
       <section class="carrinho_modal" :class="{ativo: carrinhoAtivo}" @click="clickForaCarrinho">
         <div class="carrinho_container">
           <button class="carrinho_fechar" @click="carrinhoAtivo = false">X</button>
           <h2 class="carrinho_titulo">Carrinho</h2>
-          <div v-if="carrinho.length > 0">
+          <div v-if="$store.state.carrinho.length > 0">
             <ul class="carrinho_lista">
-              <li  class="carrinho_item">
-                <p>{{carrinho[0].nome}} | Quantidade {{carrinho.length}}</p>
+              <li v-for="(carrinho, index) in $store.state.carrinho" :key="index" class="carrinho_item">
+                <p>{{carrinho.nome}} </p>
 
-                <p class="carrinho_preco">{{carrinho[0].preco | numeroPreco}}</p>
-                <button class="carrinho_remover" @click="removerItem(carrinho.id)">X</button>
+                <p class="carrinho_preco">{{carrinho.preco | numeroPreco}}</p>
+                <button class="carrinho_remover" @click="removerItem(index)">X</button>
               </li>
             </ul>
             <p class="carrinho_total">{{carrinhoTotal | numeroPreco}}</p>
@@ -28,12 +28,6 @@
 
 export default {
   name: 'Carrinho',
-  props: {
-    carrinho: {
-      type: Array,
-      require: true
-    }
-  },
   data () {
     return {
       produto: null,
@@ -45,8 +39,8 @@ export default {
 
     carrinhoTotal () {
       let total = 0
-      if (this.carrinho.length) {
-        this.carrinho.forEach(item => {
+      if (this.$store.state.carrinho.length) {
+        this.$store.state.carrinho.forEach(item => {
           total += Number(item.preco)
         })
       }
@@ -60,7 +54,7 @@ export default {
       }
     },
     removerItem (index) {
-      this.carrinho.splice(index, 1)
+      this.$store.state.carrinho.splice(index, 1)
     }
 
   }
@@ -125,7 +119,8 @@ export default {
 
 .carrinho_titulo {
   margin-bottom: 10px;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid #70a8cc;
+  color: #70a8cc;
   padding-bottom: 20px;
 }
 
@@ -134,6 +129,7 @@ export default {
   font-size: 1rem;
   cursor: pointer;
   background: #ffffff;
+  color: #70a8cc;
 }
 .carrinho_preco {
   text-align: right;
@@ -142,11 +138,12 @@ export default {
 .carrinho_total {
   text-align: right;
   margin: 20px 50px;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #70a8cc;
 }
 .carrinho_fechar {
   border-radius: 50%;
-  border: 2px solid #000;
+  border: 2px solid #70a8cc;
+  color: #70a8cc;
   width: 40px;
   height: 40px;
   position: absolute;
@@ -160,7 +157,7 @@ export default {
 .carrinho_finalizar {
   display: block;
   margin-left: auto;
-  background: #000;
+  background: #70a8cc;
   cursor: pointer;
   color: #ffffff;
   font-size: 1rem;

@@ -2,19 +2,27 @@
   <header>
     <nav>
       <router-link to="/" class="logo">
-        <img src="@/assets/logo.png" alt="techno" />
+      <div class="nav">
+        <div class="img">
+         <img src="@/assets/logo.png" alt="techno" />
+        </div>
+        <Carrinho class="carrinho-header" />
+      </div>
       </router-link>
     </nav>
   </header>
 </template>
 <script>
+import Carrinho from '@/components/Carrinho.vue'
 export default {
-  name: 'TheHeader'
+  name: 'TheHeader',
+  components: {
+    Carrinho
+  }
 }
 </script>
 <style scoped>
 nav{
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 20px;
@@ -25,5 +33,21 @@ nav{
 }
 .logo img{
   width: 150px;
+}
+.nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  width: 900px;
+  margin: 0 auto
+}
+.img{
+  grid-gap: 30px;
+  max-width: 900px;
+}
+.carrinho-header{
+  grid-gap: 30px;
+  max-width: 900px;
+  margin-top: 30px;
 }
 </style>

@@ -1,13 +1,11 @@
 <template>
 <section>
   <div v-if="produto" class="produto">
-    <div></div>
-    <Carrinho  :carrinho="carrinho" />
     <div class="informacoes">
       <h1>{{produto.nome}}</h1>
       <p class="preco">{{produto.preco | numeroPreco}}</p>
       <p  class="descricao">{{produto.descricao}}</p>
-      <button :disabled="carrinho.length >= produto.estoque" @click="adicionarItem(); comprar();" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
+      <button :disabled="$store.state.carrinho.length >= produto.estoque" @click="adicionarItem(); comprar();" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
       <button class="btn" v-else>Produto Vendido</button>
     </div>
     <div class="imgProdutos" v-if="url">
@@ -16,7 +14,7 @@
      <div class="alerta" :class="{ativo : alertaAtivo}">
         <p class="alerta_mensagem">{{mensagemAlerta}}</p>
       </div>
-      <div  v-if="carrinho.length >= produto.estoque" class="alerta erro">
+      <div  v-if="$store.state.carrinho.length >= produto.estoque" class="alerta erro">
         <p class="alerta_erro">Produto esgotado</p>
       </div>
 
@@ -26,17 +24,12 @@
 </template>
 <script>
 import { api } from '@/services.js'
-import Carrinho from '@/components/Carrinho.vue'
 
 export default {
   name: 'Produtos',
   props: ['id'],
-  components: {
-    Carrinho
-  },
   data () {
     return {
-      carrinho: [],
       produto: null,
       mensagemAlerta: '',
       alertaAtivo: false,
@@ -51,7 +44,7 @@ export default {
   methods: {
     adicionarItem () {
       const { id, nome, preco } = this.produto
-      this.carrinho.push({ id, nome, preco })
+      this.$store.state.carrinho.push({ id, nome, preco })
       this.alerta(`${nome} adicionado ao carrinho`)
     },
     comprar () {
