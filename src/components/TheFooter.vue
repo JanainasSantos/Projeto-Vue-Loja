@@ -1,6 +1,6 @@
 <template>
 <footer>
-  <p>Téchno. Alguns direitos reservados.</p>
+  <p>InfoShop. Alguns direitos reservados.</p>
 </footer>
 </template>
 <script>

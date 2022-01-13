@@ -52,11 +52,13 @@ img{
 }
 .btn {
   display: block;
-  padding: 10px 30px;
+  padding: 10px 20px;
   background: #70a8cc;
   border-radius: 4px;
   color: #fff;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   font-size: 1rem;
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
   transition: all 0.3s;

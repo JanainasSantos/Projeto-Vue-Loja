@@ -5,8 +5,8 @@
       <h1>{{produto.nome}}</h1>
       <p class="preco">{{produto.preco | numeroPreco}}</p>
       <p  class="descricao">{{produto.descricao}}</p>
-      <button :disabled="$store.state.carrinho.length >= produto.estoque" @click="adicionarItem(); comprar();" class="btn" v-if="produto.vendido === 'false'">Comprar</button>
-      <button class="btn" v-else>Produto Vendido</button>
+      <button :disabled="$store.state.carrinho.length >= produto.estoque" @click="adicionarItem" class="btn" v-if="produto.vendido === 'false'">Adicionar ao carrinho</button>
+      <button class="btn btn-esgotado" v-else>Produto Esgotado</button>
     </div>
     <div class="imgProdutos" v-if="url">
         <img  :src="url" :alt="produto.nome"/>
@@ -43,15 +43,15 @@ export default {
   },
   methods: {
     adicionarItem () {
-      const { id, nome, preco } = this.produto
-      this.$store.state.carrinho.push({ id, nome, preco })
-      this.alerta(`${nome} adicionado ao carrinho`)
-    },
-    comprar () {
       if (this.produto.estoque) {
-        this.alerta(`${this.produto.nome} comprado!`)
+        const { id, nome, preco } = this.produto
+        this.$store.state.carrinho.push({ id, nome, preco })
+        this.alerta(`${this.produto.nome} adicionado ao carrinho!`)
+      } if (this.$store.state.carrinho.length >= this.produto.estoque) {
+        this.produto.vendido = 'true'
       }
     },
+
     alerta (mensagem) {
       this.mensagemAlerta = mensagem
       this.alertaAtivo = true
@@ -95,7 +95,7 @@ export default {
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
   grid-gap: 30px;
   max-width: 900px;
-  padding: 60px 20px;
+  padding: 40px 40px;
   margin: 0 auto
 }
 .imgProdutos{
@@ -104,7 +104,7 @@ export default {
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
   grid-gap: 30px;
   max-width: 900px;
-  padding: 20px 20px;
+  padding: 40px 40px;
   margin: 0 auto
 }
 .imgProdutos img{
@@ -128,7 +128,7 @@ export default {
   font-size: 1.2rem;
 }
 .btn{
-  margin: 40px;
+  margin: 60px;
   width: 200px;
 }
 .alerta_mensagem {
@@ -151,7 +151,7 @@ export default {
   background: #ffffff;
   display: inline-block;
   padding: 20px 40px;
-  border: 2px solid  red;
+  border: 2px solid  darkred;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .alerta.erro {
@@ -166,6 +166,12 @@ export default {
 .alerta.ativo {
   display: block;
   animation: fadeInDown 0.3s forwards;
+}
+.btn-esgotado{
+  background: darkred;
+}
+.btn-esgotado:hover{
+  background: darkred;
 }
 @keyframes timeErro {
     to {
